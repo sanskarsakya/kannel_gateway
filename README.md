@@ -28,7 +28,7 @@ $ npm install
 $ ng serve (localhost:4200)
 ```
 
-### backend
+### Backend
 
 ```sh
 $ cd smsfinal
