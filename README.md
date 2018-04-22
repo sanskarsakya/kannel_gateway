@@ -13,6 +13,9 @@
 3. java JDK
 
 
+![alt text](https://github.com/sanskarsakya/kannel_gateway/blob/master/screenshot/Untitled.png "kannel test")
+
+
 ### Installation
 ```sh
 $ git clone https://github.com/sanskarsakya/kannel_gateway.git
