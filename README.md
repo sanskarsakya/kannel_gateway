@@ -1,6 +1,14 @@
+#Technologies used
+1. Spring boot (Backend)
+2. Spring batch
+3. Spring websocket
+4. maven
+5. Kannel sms gateway
+6. Angular 5 (Frontend)
+
 ## Installation
 Git clone : repo
-### Frontend
+### Frontend (Angular)
 1. cd frontend
 2. npm install
 3. ng serve (localhost:4200)
