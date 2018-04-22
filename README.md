@@ -3,7 +3,7 @@
 2. Spring batch
 3. Spring websocket
 4. maven
-5. Kannel sms gateway
+5. Kannel sms gateway (Hosted on ubuntu 16.04 lts)
 6. Angular 5 (Frontend)
 
 ### Installation
