@@ -1,10 +1,11 @@
 # Technologies used
 1. Spring boot (Backend)
 2. Spring batch
-3. Spring websocket
-4. maven
-5. Kannel sms gateway (Hosted on ubuntu 16.04 lts)
-6. Angular 5 (Frontend)
+3. Spring JPA
+4. Spring websocket
+5. maven
+6. Kannel sms gateway (Hosted on ubuntu 16.04 lts)
+7. Angular 5 (Frontend)
 
 ### Installation
 ```sh
@@ -42,4 +43,4 @@ $ mvn spring-boot:run (make sure mysql is active)
 
 
 
-**Note: screenshot availale [here](https://github.com/sanskarsakya/kannel_gateway/blob/master/screenshot/Untitled.png)**
+**Note: screenshot available [here](https://github.com/sanskarsakya/kannel_gateway/blob/master/screenshot/Untitled.png)**
