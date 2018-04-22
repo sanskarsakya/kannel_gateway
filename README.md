@@ -6,8 +6,10 @@
 5. Kannel sms gateway
 6. Angular 5 (Frontend)
 
-## Installation
-Git clone : repo
+#### Installation
+```sh
+$ git clone https://github.com/sanskarsakya/kannel_gateway.git
+```
 ### Frontend (Angular)
 
 ```sh
