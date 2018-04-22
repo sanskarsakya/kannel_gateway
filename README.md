@@ -53,3 +53,5 @@ $ mvn spring-boot:run (make sure mysql is active)
 
 
 **Note: screenshot available [here](https://github.com/sanskarsakya/kannel_gateway/blob/master/screenshot/Untitled.png)**
+
+![alt text](https://github.com/sanskarsakya/kannel_gateway/blob/master/screenshot/kannel_status.PNG "kannel status")
