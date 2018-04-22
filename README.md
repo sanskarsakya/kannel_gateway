@@ -30,4 +30,16 @@ $ mvn spring-boot:run (make sure mysql is active)
 1. cd src/main/resources/application.properties
 2. change as per requirement.
 
+
+### Important endpoints
+
+| Endpoint (localhost:8080) | Url |
+| ------ | ------ |
+| / | default |
+| /send | triggers send message batch job |
+| /post | uploads csv |
+| /job | perform insert batch |
+
+
+
 **Note: screenshot availale [here](https://github.com/sanskarsakya/kannel_gateway/blob/master/screenshot/Untitled.png)**
