@@ -9,14 +9,20 @@
 ## Installation
 Git clone : repo
 ### Frontend (Angular)
-1. cd frontend
-2. npm install
-3. ng serve (localhost:4200)
+
+```sh
+$ cd frontend
+$ npm install
+$ ng serve (localhost:4200)
+```
 
 ### backend
-1. cd smsfinal
-2. mvn clean install
-3. mvn spring-boot:run (make sure mysql is active)
+
+```sh
+$ cd smsfinal
+$ mvn clean install
+$ mvn spring-boot:run (make sure mysql is active)
+```
 
 ### MySQL configuration
 1. cd src/main/resources/applicaiton.properties
