@@ -7,6 +7,12 @@
 6. Kannel sms gateway (Hosted on ubuntu 16.04 lts)
 7. Angular 5 (Frontend)
 
+### prerequisite
+1. maven
+2. node
+3. java JDK
+
+
 ### Installation
 ```sh
 $ git clone https://github.com/sanskarsakya/kannel_gateway.git
