@@ -62,9 +62,11 @@ public class ContactController {
     @Autowired
     JobLauncher jobLauncher;
 
+    //referenceing the import csv job
     @Autowired
     Job importContact;
 
+    //referencing the job for sending message
     @Autowired
     Job exportUserJob;
 
@@ -81,6 +83,7 @@ public class ContactController {
     //handles the send message functionality that runs the export user job batch
     @PostMapping("/send")
     public String send(Message message) throws Exception {
+        //executing the job
         try {
             JobParameters jobParameters = new JobParametersBuilder().addString("message","check").addLong("time", System.currentTimeMillis()).toJobParameters();
             jobLauncher.run(exportUserJob, jobParameters);

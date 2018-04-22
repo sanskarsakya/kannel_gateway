@@ -43,6 +43,16 @@ import org.springframework.core.io.ClassPathResource;
 @EnableBatchProcessing
 @Configuration
 public class CsvToDatabase {
+    
+    /*
+    contains the following methods
+    reader
+    processor
+    writer
+    job
+    step
+    
+    */
 
     private static final String OVERRIDDEN_BY_EXPRESSION = null;
 
@@ -58,11 +68,11 @@ public class CsvToDatabase {
     public DataSource dataSource;
 
     @Bean
-    @StepScope
+    @StepScope //access the job parameter values
     public FlatFileItemReader<Contact> reader(@Value("#{jobParameters['inputFile']}") String inputFile) {        
-        FlatFileItemReader<Contact> reader = new FlatFileItemReader<Contact>();
-        reader.setResource(new ClassPathResource(inputFile));
-        reader.setLineMapper(new DefaultLineMapper<Contact>() {
+        FlatFileItemReader<Contact> reader = new FlatFileItemReader<Contact>(); //file reader 
+        reader.setResource(new ClassPathResource(inputFile)); //refer path to the file
+        reader.setLineMapper(new DefaultLineMapper<Contact>() { //mapping of te lines
             {
                 setLineTokenizer(new DelimitedLineTokenizer() {
                     {
@@ -79,17 +89,17 @@ public class CsvToDatabase {
         return reader;
     }
 
-    @Bean
+    @Bean //instantiate the oricessor
     public ContactItemProcessor processor() {
         return new ContactItemProcessor();
     }
 
-    @Bean
+    @Bean //write to the database
     public JdbcBatchItemWriter<Contact> writer() {
         JdbcBatchItemWriter<Contact> writer = new JdbcBatchItemWriter<Contact>();
         writer.setItemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<Contact>());
         writer.setSql("INSERT INTO tbl_contacts (msisdn) VALUES (:msisdn)");
-        writer.setDataSource(dataSource);
+        writer.setDataSource(dataSource); //write into the database
         return writer;
     }
 
@@ -97,8 +107,8 @@ public class CsvToDatabase {
     public Job importContact(JobCompletionNotificationListener listener) {
         return jobBuilderFactory.get("importContact")
                 .incrementer(new RunIdIncrementer())
-                .listener(listener)
-                .flow(step())
+                .listener(listener) //refer listener contains before and after method for execution
+                .flow(step()) //chain the steps if any is available
                 .end()
                 .build();
     }
@@ -106,10 +116,10 @@ public class CsvToDatabase {
     @Bean
     public Step step() {
         return stepBuilderFactory.get("step")
-                .<Contact, Contact>chunk(100)
-                .reader(reader(OVERRIDDEN_BY_EXPRESSION))
-                .processor(processor())
-                .writer(writer())
+                .<Contact, Contact>chunk(100) //read the line at once
+                .reader(reader(OVERRIDDEN_BY_EXPRESSION)) //reader
+                .processor(processor()) //processor
+                .writer(writer()) //writer
                 .build();
     }
 

@@ -18,10 +18,11 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 @Configuration
 @EnableWebSocketMessageBroker
 public class WebSocketConfiguration extends AbstractWebSocketMessageBrokerConfigurer {
+    //socket confiuration
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/socket")
+        registry.addEndpoint("/socket") //client subscribes to this endpoint 
                 .setAllowedOrigins("*")
                 .withSockJS();
     }

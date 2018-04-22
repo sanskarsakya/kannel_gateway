@@ -24,35 +24,39 @@ import org.springframework.web.client.RestTemplate;
 public class SendItemProcessor implements ItemProcessor<Contact, Contact> {
 
     private static final Logger log = LoggerFactory.getLogger(SendItemProcessor.class);
+
+    //required for report inserting
     @Autowired
     private ReportRepository rr;
 
+    //delegate server update to browswer via socket
     @Autowired
     private SimpMessagingTemplate template;
 
+    //conversion logic happens here during the batch job execution
     @Override
-    @StepScope
     public Contact process(final Contact contact) throws Exception {
 
         String url = "http://192.168.100.23:13013/cgi-bin/sendsms?smsc=FAKE&username=rapidsms&password=CHANGE-ME&from=puzan&text=this-is-test&to=" + contact.getMsisdn();
-//
-//        RestTemplate restTemplate = new RestTemplate();
-//        String post = restTemplate.getForObject(url, String.class);
-//
-//       // System.out.println(post.toString() + " " + contact.getMessage());
+
+        //executing the get call to ubuntu server with above url
+        RestTemplate restTemplate = new RestTemplate();
+        String post = restTemplate.getForObject(url, String.class); //get 0. available for delivery
+
         this.template.convertAndSend("/chat", "sending message to " + contact.getMsisdn() + " , status: ");
 
-//        Report report = new Report();
-//        Date date = new Date();
-//
-//        report.setMsisdn(contact.getMsisdn());
-//        report.setReportReceivedTime(date);
-//        report.setSentTime(date);
-//        report.setMessage(contact.getMessage());
-//        report.setDeliveryReport(post.toString());
+        //perform report insert
+        Report report = new Report();
+        Date date = new Date();
+
+        report.setMsisdn(contact.getMsisdn());
+        report.setReportReceivedTime(date);
+        report.setSentTime(date);
+        report.setMessage(contact.getMessage());
+        report.setDeliveryReport(post.toString());
 
         rr.save(report);
-
+        //return the processed contact
         return contact;
     }
 
