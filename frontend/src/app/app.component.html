@@ -1,0 +1,51 @@
+<div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary" style="">
+    <div class="container">
+        <a href="javascript:void(0)" class="navbar-brand">Kannel</a>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 90px;">
+
+
+
+    <!-- Buttons
+        ================================================== -->
+    <div class="bs-docs-section">
+        <div class="page-header">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 id="buttons">Upload csv</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-7">
+                <form-upload></form-upload>                
+                    <fieldset>
+                        <legend>Message</legend>
+                        <div class="form-group">
+                            <label for="exampleTextarea">Type message</label>
+                            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                        </div>
+                        <button  (click)="sendMessage()" class="btn btn-success btn-sm">Submit</button>
+                    </fieldset>                
+            </div>
+            <div class="col-lg-5">
+
+                <p class="bs-component">
+                    <button type="submit" class="btn btn-danger btn-sm" (click)="toggleLogger()">Toggle Logs</button>
+                </p>
+                <p class="bs-component">
+                    <button type="submit" class="btn btn-danger btn-sm" (click)="clearLogger()">Clear Logs</button>
+                </p>
+
+             
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
