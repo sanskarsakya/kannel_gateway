@@ -1,4 +1,4 @@
-## Installatioon
+## Installation
 Git clone : repo
 ### Frontend
 1. cd frontend
