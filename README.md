@@ -40,7 +40,7 @@ $ mvn spring-boot:run (make sure mysql is active)
 
 ### Important endpoints
 
-| Endpoint (localhost:8080) | Url |
+| Endpoint (localhost:8080) | Description |
 | ------ | ------ |
 | / | default |
 | /send | triggers send message batch job |
