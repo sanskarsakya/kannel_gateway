@@ -81,7 +81,7 @@ public class ContactController {
     }
 
     //handles the send message functionality that runs the export user job batch
-    @PostMapping("/send")
+    @GetMapping("/send")
     public String send(Message message) throws Exception {
         //executing the job
         try {

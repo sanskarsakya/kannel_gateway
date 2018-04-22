@@ -41,8 +41,8 @@ public class SendItemProcessor implements ItemProcessor<Contact, Contact> {
 
         //executing the get call to ubuntu server with above url
         RestTemplate restTemplate = new RestTemplate();
-        String post = restTemplate.getForObject(url, String.class); //get 0. available for delivery
-
+        String post = restTemplate.getForObject(url, String.class); //get 0. Accepted for delivery
+        log.info("sending message to " + contact.getMsisdn());
         this.template.convertAndSend("/chat", "sending message to " + contact.getMsisdn() + " , status: ");
 
         //perform report insert
