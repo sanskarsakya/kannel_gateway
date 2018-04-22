@@ -27,7 +27,7 @@ $ mvn spring-boot:run (make sure mysql is active)
 ```
 
 ### MySQL configuration
-1. cd src/main/resources/applicaiton.properties
+1. cd src/main/resources/application.properties
 2. change as per requirement.
 
 **Note: screenshot availale [here](https://github.com/sanskarsakya/kannel_gateway/blob/master/screenshot/Untitled.png)**
